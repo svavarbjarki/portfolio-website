@@ -3,8 +3,9 @@ import '../styles/globals.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Head from 'next/head';
+import { motion, AnimatePresence } from 'framer-motion';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <Head>
@@ -13,7 +14,22 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="icons/favicon.ico" />
       </Head>
       <Header />
-      <Component {...pageProps} />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={router.route}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={{
+            initial: { opacity: 0, x: -200 },
+            animate: { opacity: 1, x: 0 },
+            exit: { opacity: 0, x: 200 },
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <Component {...pageProps} />
+        </motion.div>
+      </AnimatePresence>
       <Footer />
     </>
   );

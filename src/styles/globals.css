@@ -1,17 +1,18 @@
 /* styles/globals.css */
 
 :root {
-  --primary-color: #ff8c42;
-  --secondary-color: #ffffff;
-  --background-color: #ff8c42;
-  --text-color: #333333;
+  --primary-color: #000000;
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --nav-text-color: #ffffff;
+  ;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: var(--secondary-color);
+  background-color: var(--background-color);
   color: var(--text-color);
 }
 

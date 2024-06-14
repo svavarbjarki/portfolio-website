@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: var(--background-color);
   }
   
   .main {
@@ -16,40 +17,40 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    max-width: 1200px;
+    max-width: 800px;
     width: 100%;
+    color: var(--text-color);
   }
   
   .title {
     margin: 0;
     font-size: 3rem;
     text-align: center;
-  }
-  
-  .description {
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 2rem;
+    color: var(--text-color);
   }
   
   .section {
     margin-bottom: 2rem;
+    color: var(--text-color);
   }
   
   .subtitle {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: var(--text-color);
   }
   
   .skillsList {
     list-style-type: none;
     padding: 0;
+    color: var(--text-color);
   }
   
   .skillsList li {
-    background: #f0f0f0;
+    background: #ffffff;
     margin: 0.5rem 0;
     padding: 0.5rem 1rem;
     border-radius: 5px;
+    color: var(--text-color);
   }
   

@@ -1,0 +1,13 @@
+/* styles/InteractiveBackground.module.css */
+
+.circle {
+  position: fixed; /* Ensure the circle is positioned relative to the viewport */
+  width: 150px; /* Adjust size as needed */
+  height: 150px; /* Adjust size as needed */
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
+  pointer-events: none; /* Ensure circle is not interactive */
+  transition: transform 0.1s ease-out; /* Smooth follow effect */
+  transform: translate(-50%, -50%); /* Center the circle */
+  z-index: 9999; /* Ensure the circle is above other content */
+}
