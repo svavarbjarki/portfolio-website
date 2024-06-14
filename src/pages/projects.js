@@ -5,7 +5,7 @@ export default function Projects() {
     return (
       <div className={styles.container}>
         <h1>My Projects</h1>
-        <p>Showcase your projects here.</p>
+        <p>(work in progress)</p>
       </div>
     );
   }

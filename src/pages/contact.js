@@ -5,7 +5,7 @@ export default function Contact() {
     return (
       <div className={styles.container}>
         <h1>Contact Me</h1>
-        <p>Provide your contact details here.</p>
+        <p>(work in progress).</p>
       </div>
     );
   }
