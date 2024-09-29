@@ -6,32 +6,30 @@ export default function About() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>About Me - Svavar Bjarnason</title>
-        <meta name="description" content="Learn more about Svavar Bjarnason" />
+        <title>About Me</title>
+        <meta name="description" content="Learn more about me" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>About Me</h1>
-        <section className={styles.section}>
-          <h2 className={styles.subtitle}>Bio</h2>
+      <section className={styles.aboutSection}>
+        <div className={styles.topSection}>
+          <img src="icons/profilepic.jpg" alt="Profile Picture" className={styles.profileImage} />
+          <div className={styles.shortDescription}>
+            <h1 className={styles.title}>Hello, I'm Svavar Bjarki Bjarnason</h1>
+            <p className={styles.subtitle}>I am a university student pursuing a Computer Science degree.</p>
+          </div>
+        </div>
+
+        {/* Longer Text Section */}
+        <div className={styles.longDescription}>
           <p>
-            Hi, I'm Svavar Bjarki Bjarnason, a passionate software developer based in Iceland. I am currently pursuing a Bachelor degree in computer science at Reykjavík University. I am on my last year and will graduate in the spring of 2025.
+            I specialize in frontend development, working with modern frameworks like React, Vue, and Angular. I also have experience with backend technologies such as Node.js and Express. With a strong foundation in both frontend and backend, I create full-stack applications that are scalable, secure, and user-friendly.
           </p>
-        </section>
-        <section className={styles.section}>
-          <h2 className={styles.subtitle}>Skills</h2>
-          <ul className={styles.skillsList}>
-            <li>Python</li>
-            <li>React.js</li>
-            <li>Next.js</li>
-            <li>Node.js</li>
-            <li>HTML & CSS</li>
-            <li>Git & GitHub</li>
-            <li>C++ & C</li>
-            <li>Unity</li>
-          </ul>
-        </section>
-      </main>
+          <p>
+            Beyond programming, I enjoy contributing to open-source projects, mentoring new developers, and exploring emerging technologies. My goal is to continuously improve my skills and contribute to meaningful projects that have a positive impact.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

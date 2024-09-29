@@ -1,6 +1,4 @@
-// pages/index.js
 import Head from 'next/head';
-import InteractiveBackground from '../components/InteractiveBackground';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -11,8 +9,6 @@ export default function Home() {
         <meta name="description" content="Welcome to my portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <InteractiveBackground />
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to My Portfolio</h1>

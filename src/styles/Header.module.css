@@ -1,41 +1,116 @@
 /* styles/Header.module.css */
-
 .header {
-  width: 100%;
-  padding: 1rem 0;
-  background-color: var(--primary-color);
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
+  padding: 30px;
+  position: fixed; /* Fix the header to the viewport */
+  top: 0; /* Position it at the top of the screen */
+  left: 0;
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  background-color: white; /* Optional: Set a background color */
+  border-bottom: 1px solid #eaeaea; /* Optional: Add a subtle border */
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--nav-text-color);
-  text-decoration: none;
+.nav {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
 }
 
 .nav a {
-  display: inline-block;
-  margin: 0 1rem;
-  color: var(--nav-text-color);
-  transition: transform 0.3s ease;
+  margin-right: 20px;
+  color: black;
+  text-decoration: none;
+  font-size: 1.4em;
+  position: relative;
+  transition: color 0.3s ease; /* Optional: Add color transition for smooth hover effect */
 }
 
-.nav a:hover {
-  transform: scale(1.5);
+/* Underline Animation */
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px; /* Position the underline slightly below the text */
+  left: 50%; /* Start the underline from the center */
+  background-color: black;
+  transition: width 0.3s ease, left 0.3s ease; /* Smooth animation */
 }
 
-.nav .active {
-  transform: scale(1.5);
+/* Hover Effect */
+.nav a:hover::after {
+  width: 100%; /* Expand the underline to full width */
+  left: 0; /* Move starting point to the left */
+}
+
+/* Active Link Style - Keeps Underline */
+.nav a.active::after {
+  width: 100%; /* Keep the underline visible for the active link */
+  left: 0; /* Ensure the underline starts from the left */
+}
+
+.nav a.active {
+  color: black; /* Optional: Change the color of the active link */
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Center the logo */
+  font-size: 2em;
+  color: black;
+}
+
+.logo a {
+  color: black;
+  text-decoration: none;
+}
+
+.links {
+  display: flex; /* Use flexbox for horizontal alignment */
+  align-items: center; /* Vertically center the links */
+  gap: 15px; /* Space between the icons */
+  position: absolute;
+  right: 20px; /* Align to the right */
+}
+
+/* Container for each icon */
+.links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the individual icons */
+.icon {
+  width: 30px; /* Set icon size */
+  height: 30px;
+  border-radius: 50%; /* Make the icon itself circular */
+  cursor: pointer;
+  transition: transform 0.2s ease; /* Animation effect on hover */
+}
+
+/* Circle effect on hover */
+.links a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px; /* Set the final width of the circle */
+  height: 40px; /* Set the final height of the circle */
+  border-radius: 50%; /* Make the shape circular */
+  border: 2px solid transparent; /* Start with no visible border */
+  transform: translate(-50%, -50%); /* Center the circle around the icon */
+  transition: border 0.3s ease; /* Transition only the border */
+}
+
+.links a:hover::before {
+  border-color: black; /* Draw the border on hover */
+}
+
+.icon:hover {
+  transform: scale(1.1); /* Slightly scale the icon on hover */
 }
