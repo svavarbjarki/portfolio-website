@@ -31,7 +31,7 @@
 
 .content {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -58,32 +58,51 @@
   font-weight: 600;
 }
 
-.profileBox,
-.educationBox,
-.skillsBox,
-.experienceBox,
-.interestsBox,
-.contactBox {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-color);
-  white-space: pre-line;
-  padding: 1rem;
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skillCard {
   background-color: rgba(79, 70, 229, 0.05);
-  border-radius: 8px;
   border: 1px dashed rgba(79, 70, 229, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skillCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skillTitle {
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.skillLevel {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.skillDescription {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
 }
 
 :global(.dark) .section {
   border-color: rgba(99, 102, 241, 0.1);
 }
 
-:global(.dark) .profileBox,
-:global(.dark) .educationBox,
-:global(.dark) .skillsBox,
-:global(.dark) .experienceBox,
-:global(.dark) .interestsBox,
-:global(.dark) .contactBox {
+:global(.dark) .skillCard {
   background-color: rgba(99, 102, 241, 0.05);
   border-color: rgba(99, 102, 241, 0.2);
 }
@@ -107,13 +126,20 @@
     font-size: 1.5rem;
   }
 
-  .profileBox,
-  .educationBox,
-  .skillsBox,
-  .experienceBox,
-  .interestsBox,
-  .contactBox {
-    font-size: 1rem;
-    padding: 0.75rem;
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-}
+
+  .skillCard {
+    padding: 1rem;
+  }
+
+  .skillTitle {
+    font-size: 1.2rem;
+  }
+
+  .skillDescription {
+    font-size: 0.95rem;
+  }
+} 
