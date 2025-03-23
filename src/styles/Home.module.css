@@ -30,6 +30,10 @@
   justify-content: center;
   max-width: 1000px;
   text-align: center;
+  background-color: var(--component-background);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .profilePicContainer {

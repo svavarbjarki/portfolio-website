@@ -29,101 +29,120 @@
   text-align: center;
 }
 
-.projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.content {
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
   padding: 0 1rem;
-  margin-bottom: 2rem;
 }
 
-.projectCard {
-  background-color: var(--background-color);
+.projectSection {
+  background-color: var(--component-background);
   border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(79, 70, 229, 0.1);
 }
 
-.projectCard:hover {
+.projectSection:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
-.projectImage {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.projectCard:hover .image {
-  transform: scale(1.05);
-}
-
-.projectContent {
-  padding: 1.5rem;
+.projectHeader {
+  margin-bottom: 2rem;
 }
 
 .projectTitle {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 2rem;
   color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.projectSubtitle {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  font-weight: 500;
 }
 
 .projectDescription {
-  font-size: 1rem;
-  color: var(--text-color);
-  margin-bottom: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 2rem;
 }
 
-.technologies {
+.technologiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.technologyCard {
+  background-color: var(--component-background);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technologyCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.technologyName {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.technologyDescription {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.projectLinks {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.techTag {
-  background-color: rgba(79, 70, 229, 0.1);
-  color: var(--accent-color);
-  padding: 0.25rem 0.75rem;
-  border-radius: 15px;
-  font-size: 0.875rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .githubLink {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  color: var(--accent-color);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  gap: 0.5rem;
 }
 
 .githubLink:hover {
-  color: #3730a3;
+  background-color: #3730a3;
+  transform: translateY(-2px);
 }
 
-:global(.dark) .projectCard {
+/* Dark mode adjustments */
+:global(.dark) .projectSection {
+  border-color: rgba(99, 102, 241, 0.1);
+  background-color: var(--component-background);
+}
+
+:global(.dark) .technologyCard {
+  background-color: var(--component-background);
   border-color: rgba(99, 102, 241, 0.1);
 }
 
-:global(.dark) .techTag {
-  background-color: rgba(99, 102, 241, 0.1);
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .container {
     padding: 5rem 1rem 1rem;
@@ -134,12 +153,43 @@
     margin-bottom: 2rem;
   }
 
-  .projectsGrid {
-    grid-template-columns: 1fr;
+  .projectSection {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
   }
 
-  .projectImage {
-    height: 180px;
+  .projectTitle {
+    font-size: 1.8rem;
+  }
+
+  .projectSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .projectDescription {
+    font-size: 1rem;
+  }
+
+  .technologiesGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .technologyCard {
+    padding: 1rem;
+  }
+
+  .technologyName {
+    font-size: 1.1rem;
+  }
+
+  .technologyDescription {
+    font-size: 0.95rem;
+  }
+
+  .githubLink {
+    width: 100%;
+    justify-content: center;
   }
 }
 

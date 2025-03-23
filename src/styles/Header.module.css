@@ -8,13 +8,13 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--component-background);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(79, 70, 229, 0.1);
 }
 
 :global(.dark) .header {
-  background-color: rgba(18, 18, 18, 0.95);
+  background-color: var(--component-background);
   border-bottom: 1px solid rgba(99, 102, 241, 0.1);
 }
 
@@ -36,8 +36,10 @@
 
 .nav {
   display: flex;
-  justify-content: flex-start;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-grow: 1;
+  margin: 0 2rem;
 }
 
 .nav a {
@@ -48,6 +50,7 @@
   position: relative;
   padding: 0.5rem 0;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 :global(.dark) .nav a {
@@ -131,14 +134,28 @@
 @media (max-width: 768px) {
   .header {
     padding: 1rem;
+    flex-wrap: wrap;
   }
 
   .nav {
-    gap: 1rem;
+    order: 3;
+    width: 100%;
+    justify-content: space-around;
+    gap: 0.5rem;
+    margin: 1rem 0 0 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .nav a {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
   }
 
   .logo {
@@ -148,5 +165,9 @@
   .icon {
     width: 20px;
     height: 20px;
+  }
+
+  .links {
+    gap: 0.5rem;
   }
 }

@@ -1,6 +1,7 @@
 :root {
   --primary-color: #000000;
-  --background-color: #ffffff;
+  --background-color: #f5f5f5;
+  --component-background: #ffffff;
   --text-color: #000000;
   --accent-color: #4f46e5;
   --nav-text-color: #000000;
@@ -8,7 +9,8 @@
 
 .dark {
   --primary-color: #ffffff;
-  --background-color: #121212;
+  --background-color: #1b1b1b;
+  --component-background: #242424;
   --text-color: #ffffff;
   --nav-text-color: #ffffff;
   --accent-color: #6366F1;

@@ -38,7 +38,7 @@
 
 .section {
   margin-bottom: 3rem;
-  background-color: var(--background-color);
+  background-color: var(--component-background);
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -65,11 +65,19 @@
   margin-top: 1rem;
 }
 
+.skillSection {
+  background-color: var(--component-background);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
 .skillCard {
-  background-color: rgba(79, 70, 229, 0.05);
-  border: 1px dashed rgba(79, 70, 229, 0.2);
+  background-color: var(--component-background);
   border-radius: 8px;
   padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -102,9 +110,10 @@
   border-color: rgba(99, 102, 241, 0.1);
 }
 
+:global(.dark) .skillSection,
 :global(.dark) .skillCard {
-  background-color: rgba(99, 102, 241, 0.05);
-  border-color: rgba(99, 102, 241, 0.2);
+  background-color: var(--component-background);
+  border-color: rgba(99, 102, 241, 0.1);
 }
 
 @media (max-width: 768px) {

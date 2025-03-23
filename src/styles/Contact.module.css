@@ -36,9 +36,24 @@
   padding: 0 1rem;
 }
 
+.contactSection {
+  background-color: var(--component-background);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.formSection {
+  background-color: var(--component-background);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
 .section {
   margin-bottom: 3rem;
-  background-color: var(--background-color);
+  background-color: var(--component-background);
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -66,10 +81,10 @@
 }
 
 .infoCard {
-  background-color: rgba(79, 70, 229, 0.05);
-  border: 1px dashed rgba(79, 70, 229, 0.2);
+  background-color: var(--component-background);
   border-radius: 8px;
   padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -114,7 +129,7 @@
   padding: 0.75rem;
   border: 1px solid rgba(79, 70, 229, 0.2);
   border-radius: 8px;
-  background-color: var(--background-color);
+  background-color: var(--component-background);
   color: var(--text-color);
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;

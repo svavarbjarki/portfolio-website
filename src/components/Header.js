@@ -27,6 +27,8 @@ export default function Header() {
     }
   };
 
+  const navItems = ['Home', 'About', 'Projects', 'Games', 'Skills', 'Contact'];
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -34,7 +36,7 @@ export default function Header() {
       </div>
 
       <nav className={styles.nav}>
-        {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => {
+        {navItems.map((item) => {
           const path = item === 'Home' ? '/' : `/${item.toLowerCase()}`;
           const isActive = router.pathname === path;
           return (
@@ -48,7 +50,6 @@ export default function Header() {
         })}
       </nav>
 
-
       <div className={styles.links}>
         <a href="https://github.com/svavarbjarki" target="_blank" rel="noopener noreferrer">
           <img src="/icons/githubicon.png" alt="GitHub" className={styles.icon} />
@@ -57,30 +58,29 @@ export default function Header() {
           <img src="/icons/linkedinicon.png" alt="LinkedIn" className={styles.icon} />
         </a>
         <button onClick={toggleDarkMode} className={styles.darkModeBtn}>
-        <AnimatePresence mode="wait" initial={false}>
-          {darkMode ? (
-            <motion.span
-              key="moon"
-              initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
-              animate={{ rotate: 0, opacity: 1, scale: 1 }}
-              exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-            >
-              🌙
-            </motion.span>
-          ) : (
-            <motion.span
-              key="sun"
-              initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
-              animate={{ rotate: 0, opacity: 1, scale: 1 }}
-              exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
-            >
-              ☀️
-            </motion.span>
-          )}
-        </AnimatePresence>
-
+          <AnimatePresence mode="wait" initial={false}>
+            {darkMode ? (
+              <motion.span
+                key="moon"
+                initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+              >
+                🌙
+              </motion.span>
+            ) : (
+              <motion.span
+                key="sun"
+                initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+              >
+                ☀️
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
       </div>
     </header>

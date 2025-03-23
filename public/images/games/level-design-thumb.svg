@@ -1,0 +1,8 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#2A2A2A"/>
+  <rect x="240" y="160" width="800" height="400" rx="8" fill="#3A3A3A"/>
+  <path d="M540 310 L640 260 L740 310 L740 410 L640 460 L540 410 Z" fill="#4A4A4A" stroke="#5A5A5A" stroke-width="4"/>
+  <rect x="590" y="335" width="100" height="50" rx="4" fill="#5A5A5A"/>
+  <text x="640" y="500" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24">Level Design Project</text>
+  <text x="640" y="530" text-anchor="middle" fill="#AAAAAA" font-family="Arial, sans-serif" font-size="18">Unity 3D Environment</text>
+</svg> 
