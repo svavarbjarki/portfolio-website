@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // Import Framer Motion
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from '../styles/Header.module.css';
 
 export default function Header() {

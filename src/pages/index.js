@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Svavar B. | Portfolio</title>
+        <title>Svavar B.</title>
         <meta name="description" content="Computer Science Student Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
