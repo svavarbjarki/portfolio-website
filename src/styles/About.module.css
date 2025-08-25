@@ -17,125 +17,457 @@
   min-height: 100vh;
   background-color: var(--background-color);
   color: var(--text-color);
-  padding: 6rem 2rem 2rem;
-  overflow-y: auto;
+  padding: 7rem 2rem 3rem;
   overflow-x: hidden;
 }
 
+.hero {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  background: var(--component-background);
+  border: 1px solid rgba(79, 70, 229, 0.12);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+:global(.dark) .hero {
+  border-color: rgba(99, 102, 241, 0.12);
+}
+
+.heroMedia {
+  position: relative;
+}
+
+.avatarWrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .title {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2.6rem;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
   color: var(--primary-color);
+}
+
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+  margin-bottom: 1.25rem;
+}
+
+.heroCtas {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  justify-content: center;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.primaryBtn {
+  background: var(--background-color);
+  color: var(--primary-color);
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.35);
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--primary-color);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-2px);
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.stat {
+  background: var(--component-background);
+  border: 1px dashed rgba(79,70,229,0.25);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
   text-align: center;
 }
 
-.content {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
+:global(.dark) .stat {
+  border-color: rgba(99,102,241,0.25);
 }
 
-.aboutSection {
-  background-color: var(--component-background);
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+.statNum {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary-color);
 }
 
-.experienceCard {
-  background-color: var(--component-background);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.statLabel {
+  font-size: 0.85rem;
+  opacity: 0.9;
 }
 
 .section {
-  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 2rem;
   background-color: var(--component-background);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(79, 70, 229, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-}
-
-.sectionTitle {
-  font-size: 1.8rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-}
-
-.profileBox,
-.educationBox,
-.skillsBox,
-.experienceBox,
-.interestsBox,
-.contactBox {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--text-color);
-  white-space: pre-line;
-  padding: 1rem;
-  background-color: var(--component-background);
-  border-radius: 8px;
-  border: 1px dashed rgba(79, 70, 229, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 :global(.dark) .section {
-  border-color: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.12);
 }
 
-:global(.dark) .profileBox,
-:global(.dark) .educationBox,
-:global(.dark) .skillsBox,
-:global(.dark) .experienceBox,
-:global(.dark) .interestsBox,
-:global(.dark) .contactBox {
-  background-color: var(--component-background);
-  border-color: rgba(99, 102, 241, 0.2);
+.sectionTitle {
+  font-size: 1.9rem;
+  color: var(--primary-color);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
 }
 
-:global(.dark) .aboutSection,
-:global(.dark) .experienceCard {
-  background-color: var(--component-background);
-  border-color: rgba(99, 102, 241, 0.1);
+.sectionIntro {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.richText {
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.quickList {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.quickList li + li {
+  margin-top: 0.4rem;
+}
+
+.tagGroups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+}
+
+.subheading {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  margin-bottom: 0.6rem;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: rgba(79,70,229,0.1);
+  color: var(--primary-color);
+  border: 1px solid rgba(79,70,229,0.25);
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+:global(.dark) .tag {
+  background: rgba(99,102,241,0.12);
+  border-color: rgba(99,102,241,0.3);
+}
+
+.timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  list-style: none;
+}
+
+.timeline:before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: rgba(79,70,229,0.25);
+  border-radius: 2px;
+}
+
+:global(.dark) .timeline:before {
+  background: rgba(99,102,241,0.3);
+}
+
+.timelineItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0 0.75rem 0;
+}
+
+.timelineItem:before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 1rem;
+  width: 10px;
+  height: 10px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(79,70,229,0.15);
+}
+
+.time {
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.itemBody { }
+
+.itemTitle {
+  font-size: 1.15rem;
+  margin: 0 0 0.25rem;
+}
+
+.itemText {
+  margin: 0 0 0.5rem;
+  opacity: 0.95;
+}
+
+.bullets {
+  margin: 0.25rem 0 0;
+  padding-left: 1rem;
+}
+
+.eduCard {
+  background: var(--component-background);
+  border: 1px dashed rgba(79, 70, 229, 0.2);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+:global(.dark) .eduCard {
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.eduHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.eduTitle {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.eduMeta {
+  margin: 0.1rem 0 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.courseTag {
+  background: rgba(79,70,229,0.08);
+  border: 1px solid rgba(79,70,229,0.2);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+:global(.dark) .courseTag {
+  background: rgba(99,102,241,0.1);
+  border-color: rgba(99,102,241,0.25);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--component-background);
+  border: 1px solid rgba(79,70,229,0.12);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+}
+
+.cardIcon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(79,70,229,0.1);
+  margin-bottom: 0.6rem;
+}
+
+.cardTitle {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.cardText {
+  margin: 0;
+  opacity: 0.95;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(79,70,229,0.12);
+}
+
+.galleryImg {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.galleryItem:hover .galleryImg {
+  transform: scale(1.06);
+}
+
+.ctaSection {
+  width: 100%;
+  max-width: 1100px;
+  background: linear-gradient(0deg, rgba(79,70,229,0.08), rgba(79,70,229,0.08)), var(--component-background);
+  border: 1px solid rgba(79,70,229,0.12);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.ctaTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.ctaText {
+  margin: 0 auto 1rem;
+  max-width: 700px;
+  opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 220px 1fr;
+  }
+  .courseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 5rem 1rem 1rem;
-  }
+  .main { padding: 6.5rem 1.25rem 2rem; }
 
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .avatarWrap {
+    width: 160px;
+    height: 160px;
+  }
   .title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.2rem;
   }
-
-  .section {
-    padding: 1.5rem;
-    margin-bottom: 2rem;
+  .stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-
-  .sectionTitle {
-    font-size: 1.5rem;
+  .tagGroups {
+    grid-template-columns: 1fr;
   }
-
-  .profileBox,
-  .educationBox,
-  .skillsBox,
-  .experienceBox,
-  .interestsBox,
-  .contactBox {
-    font-size: 1rem;
-    padding: 0.75rem;
+  .timelineItem {
+    grid-template-columns: 1fr;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

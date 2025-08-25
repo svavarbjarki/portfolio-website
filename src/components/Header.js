@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styles from '../styles/Header.module.css';
 
 export default function Header() {
@@ -57,31 +57,23 @@ export default function Header() {
         <a href="https://www.linkedin.com/in/svavar-bjarki-bjarnason-32b2241a1/" target="_blank" rel="noopener noreferrer">
           <img src="/icons/linkedinicon.png" alt="LinkedIn" className={styles.icon} />
         </a>
-        <button onClick={toggleDarkMode} className={styles.darkModeBtn}>
-          <AnimatePresence mode="wait" initial={false}>
-            {darkMode ? (
-              <motion.span
-                key="moon"
-                initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
-                animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-              >
-                🌙
-              </motion.span>
-            ) : (
-              <motion.span
-                key="sun"
-                initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
-                animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-              >
-                ☀️
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </button>
+
+        <label className={styles.darkModeToggle} aria-label="Toggle dark mode">
+          <input
+            type="checkbox"
+            checked={darkMode}
+            onChange={toggleDarkMode}
+            aria-checked={darkMode}
+          />
+          <span className={styles.slider}>
+            <motion.span
+              className={styles.knob}
+              layout
+              transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+              animate={{ x: darkMode ? 24 : 0 }}
+            />
+          </span>
+        </label>
       </div>
     </header>
   );
