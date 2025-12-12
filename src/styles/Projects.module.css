@@ -239,7 +239,7 @@
 }
 
 .primaryBtn {
-  background: var(--primary-color);
+  background: var(--accent-color);
   color: #fff;
   box-shadow: 0 8px 18px rgba(79,70,229,0.28);
 }
@@ -250,14 +250,21 @@
 }
 
 .secondaryBtn {
-  background: transparent;
+  background: var(--accent-color);
   border: 1px solid rgba(79,70,229,0.3);
-  color: var(--primary-color);
+  color: #fff;
 }
 
 .secondaryBtn:hover {
   transform: translateY(-2px);
-  background: rgba(79,70,229,0.08);
+  box-shadow: 0 10px 24px rgba(79,70,229,0.34);
+}
+
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 :global(.dark) .tag,

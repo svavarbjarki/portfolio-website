@@ -79,7 +79,7 @@ export default function Projects() {
           <motion.section className={styles.hero} initial="hidden" animate="show" variants={fadeUp}>
             <h1 className={styles.title}>Projects</h1>
             <p className={styles.lead}>
-              A curated selection of things I’ve built—spanning full-stack apps, mobile, AI/ML, and games.
+              A curated selection of things I’ve built all from full-stack apps, mobile, AI/ML, and games (Find in Games tab).
             </p>
           </motion.section>
 
@@ -97,7 +97,7 @@ export default function Projects() {
           </motion.section>
 
           <motion.section className={styles.ctaSection} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-            <h2 className={styles.ctaTitle}>Want to dive deeper?</h2>
+            <h2 className={styles.ctaTitle}>Want to know more?</h2>
             <p className={styles.ctaText}>
               I’m happy to walk through architecture, code, or design decisions for any of these projects.
             </p>

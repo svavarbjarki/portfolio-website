@@ -100,25 +100,25 @@
 }
 
 .primaryBtn {
-  background: var(--background-color);
-  color: var(--primary-color);
-  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.3);
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(79,70,229,0.28);
 }
 
 .primaryBtn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.35);
+  box-shadow: 0 10px 24px rgba(79,70,229,0.34);
 }
 
 .secondaryBtn {
-  background: transparent;
-  color: var(--primary-color);
-  border-color: rgba(79, 70, 229, 0.3);
+  background: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(79,70,229,0.28);
 }
 
 .secondaryBtn:hover {
   transform: translateY(-2px);
-  background: rgba(79, 70, 229, 0.08);
+  box-shadow: 0 10px 24px rgba(79,70,229,0.34);
 }
 
 .stats {
