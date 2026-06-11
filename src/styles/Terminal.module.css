@@ -1,0 +1,493 @@
+/* ── Theme tokens ─────────────────────────────────────────────── */
+.page {
+  --bg: #0e0e0e;
+  --surface: #1a1a1a;
+  --border: #2a2a2a;
+  --accent: #5eead4;
+  --text: rgba(255, 255, 255, 0.92);
+  --text-dim: rgba(255, 255, 255, 0.55);
+  --text-faint: rgba(255, 255, 255, 0.35);
+  --mono: 'JetBrains Mono', ui-monospace, 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.dim {
+  color: var(--text-dim);
+}
+
+/* ── Top navigation ───────────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: rgba(14, 14, 14, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.navLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  transition: color 0.18s ease;
+}
+
+.navLink:hover {
+  color: var(--accent);
+}
+
+/* ── Layout ───────────────────────────────────────────────────── */
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.section {
+  margin-top: 5rem;
+  scroll-margin-top: 5rem;
+}
+
+.sectionTitle {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.hero {
+  scroll-margin-top: 5rem;
+}
+
+.heroIntro {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Terminal widget ──────────────────────────────────────────── */
+.terminal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: var(--mono);
+  cursor: text;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+.terminalBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  background: #151515;
+  border-bottom: 1px solid var(--border);
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #3a3a3a;
+}
+
+.terminalTitle {
+  margin-left: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  letter-spacing: 0.02em;
+}
+
+.terminalBody {
+  padding: 1.25rem 1.25rem 1.4rem;
+  height: clamp(280px, 48vh, 440px);
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.terminalBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminalBody::-webkit-scrollbar-thumb {
+  background: #2f2f2f;
+  border-radius: 8px;
+}
+
+/* Prompt + input line */
+.prompt {
+  white-space: nowrap;
+  margin-right: 0.55rem;
+  font-weight: 500;
+}
+
+.promptUser {
+  color: var(--text-faint);
+}
+
+.promptRow {
+  display: flex;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  caret-color: var(--accent);
+  padding: 0;
+}
+
+/* Echoed command */
+.cmdEcho {
+  display: flex;
+  align-items: baseline;
+  margin-top: 0.9rem;
+}
+
+.cmdEcho:first-child {
+  margin-top: 0;
+}
+
+.cmdText {
+  color: var(--text);
+  word-break: break-word;
+}
+
+/* Output blocks */
+.outBlock {
+  margin-top: 0.5rem;
+}
+
+.out {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.outLine {
+  color: var(--text);
+  word-break: break-word;
+}
+
+.outDim {
+  color: var(--text-dim);
+  word-break: break-word;
+}
+
+.outGroup {
+  margin-bottom: 0.2rem;
+}
+
+.outGroup .accent {
+  font-weight: 500;
+}
+
+.error {
+  color: #f87171;
+}
+
+.hint {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.outKey {
+  display: inline-block;
+  width: 5.5rem;
+  color: var(--accent);
+}
+
+.outLink {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.outLink:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cmdList {
+  list-style: none;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cmdRow {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.cmdRow .accent {
+  display: inline-block;
+  min-width: 5.5rem;
+  font-weight: 500;
+}
+
+.ascii {
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* ── Skills ───────────────────────────────────────────────────── */
+.skillGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.skillLabel {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text);
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+/* ── Projects ─────────────────────────────────────────────────── */
+.projectGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: #3a3a3a;
+  transform: translateY(-2px);
+}
+
+.cardName {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cardHead .cardName {
+  margin-bottom: 0.5rem;
+}
+
+.cardYear {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.cardDesc {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.cardTag {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
+.cardLink {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  transition: color 0.18s ease;
+}
+
+.cardLink:hover {
+  color: var(--accent);
+}
+
+.projectHint {
+  margin-top: 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+/* ── About ────────────────────────────────────────────────────── */
+.aboutText {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  color: var(--text);
+  max-width: 64ch;
+  line-height: 1.8;
+}
+
+/* ── Contact ──────────────────────────────────────────────────── */
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contactLink {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: color 0.18s ease;
+}
+
+.contactLink:hover {
+  color: var(--accent);
+}
+
+.contactKey {
+  display: inline-block;
+  width: 6rem;
+  color: var(--accent);
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav {
+    padding: 0.85rem 1rem;
+  }
+
+  .navLinks {
+    gap: 1rem;
+  }
+
+  .navLink {
+    font-size: 0.78rem;
+  }
+
+  .container {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .section {
+    margin-top: 3.5rem;
+  }
+
+  .terminalBody {
+    height: clamp(260px, 56vh, 380px);
+    font-size: 0.82rem;
+    padding: 1rem;
+  }
+
+  .input,
+  .cmdEcho,
+  .outLine,
+  .outDim {
+    font-size: 0.82rem;
+  }
+
+  .outKey,
+  .cmdRow .accent {
+    min-width: 4.5rem;
+    width: auto;
+  }
+
+  .contactKey {
+    width: 4.75rem;
+  }
+
+  .aboutText {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .navLinks {
+    display: none;
+  }
+}

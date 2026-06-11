@@ -1,19 +1,20 @@
 import '../styles/globals.css';
 import Layout from '../components/Layout';
-import Head from 'next/head';
-
-<Head>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-</Head>
-
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  // The home page is a self-contained, single-page experience with its own
+  // chrome, so it opts out of the shared marketing Layout.
+  if (router.pathname === '/') {
+    return <Component {...pageProps} />;
+  }
+
   return (
-    <><Head>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-    </Head><Layout>
-        <Component {...pageProps} />
-      </Layout></>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
 
