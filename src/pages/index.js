@@ -1,5 +1,10 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import Terminal from '../components/Terminal';
+import GitHubActivity from '../components/GitHubActivity';
+import ContactEmail from '../components/ContactEmail';
+import ProjectCard from '../components/ProjectCard';
+import StatusBadge from '../components/StatusBadge';
 import styles from '../styles/Terminal.module.css';
 import {
   identity,
@@ -8,9 +13,12 @@ import {
   projects,
   games,
   contact,
+  resumeUrl,
+  STATUS,
 } from '../data/portfolio';
 
-const featuredProjects = projects.slice(0, 3);
+// Update this in one place to change the "currently building" status badge.
+const CURRENTLY_BUILDING = 'Bomber Game (Untitled)';
 
 function SectionMarker({ children }) {
   return (
@@ -66,6 +74,11 @@ export default function Home() {
               <span className={styles.dim}> — interactive portfolio</span>
             </p>
             <Terminal />
+            <div className={styles.statusBadge}>
+              <span className={styles.statusDot} />
+              <span className={styles.dim}>currently building: </span>
+              <span className={styles.statusProject}>{CURRENTLY_BUILDING}</span>
+            </div>
           </section>
 
           {/* Skills */}
@@ -85,37 +98,20 @@ export default function Home() {
             </div>
           </section>
 
+          {/* GitHub activity */}
+          <section id="activity" className={styles.section}>
+            <SectionMarker>activity (public repos)</SectionMarker>
+            <GitHubActivity />
+          </section>
+
           {/* Projects */}
           <section id="projects" className={styles.section}>
             <SectionMarker>projects</SectionMarker>
             <div className={styles.projectGrid}>
-              {featuredProjects.map((p) => (
-                <article key={p.name} className={styles.card}>
-                  <h3 className={styles.cardName}>{p.name}</h3>
-                  <p className={styles.cardDesc}>{p.blurb}</p>
-                  <div className={styles.cardTags}>
-                    {p.tech.map((t) => (
-                      <span key={t} className={styles.cardTag}>{t}</span>
-                    ))}
-                  </div>
-                  {p.link && (
-                    <a
-                      className={styles.cardLink}
-                      href={p.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {p.linkLabel} →
-                    </a>
-                  )}
-                </article>
+              {projects.map((p) => (
+                <ProjectCard key={p.slug} project={p} />
               ))}
             </div>
-            <p className={styles.projectHint}>
-              <span className={styles.dim}>Run</span>{' '}
-              <span className={styles.accent}>projects</span>{' '}
-              <span className={styles.dim}>in the terminal above to see the full list.</span>
-            </p>
           </section>
 
           {/* Games */}
@@ -126,7 +122,7 @@ export default function Home() {
                 <article key={g.name} className={styles.card}>
                   <div className={styles.cardHead}>
                     <h3 className={styles.cardName}>{g.name}</h3>
-                    <span className={styles.cardYear}>{g.year}</span>
+                    <StatusBadge status={g.status} />
                   </div>
                   <p className={styles.cardDesc}>{g.blurb}</p>
                   <div className={styles.cardTags}>
@@ -134,14 +130,23 @@ export default function Home() {
                       <span key={t} className={styles.cardTag}>{t}</span>
                     ))}
                   </div>
-                  <a
-                    className={styles.cardLink}
-                    href={g.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Play on itch.io →
-                  </a>
+                  <div className={styles.cardFooter}>
+                    {g.status === STATUS.IN_DEVELOPMENT && g.slug ? (
+                      <Link className={styles.cardLink} href={`/projects/${g.slug}`}>
+                        details →
+                      </Link>
+                    ) : g.link ? (
+                      <a
+                        className={styles.cardLink}
+                        href={g.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Play on itch.io →
+                      </a>
+                    ) : null}
+                    {g.year && <span className={styles.cardYear}>{g.year}</span>}
+                  </div>
                 </article>
               ))}
             </div>
@@ -157,10 +162,7 @@ export default function Home() {
           <section id="contact" className={styles.section}>
             <SectionMarker>contact</SectionMarker>
             <div className={styles.contactLinks}>
-              <a className={styles.contactLink} href={`mailto:${contact.email}`}>
-                <span className={styles.contactKey}>email</span>
-                {contact.email}
-              </a>
+              <ContactEmail />
               <a className={styles.contactLink} href={contact.github} target="_blank" rel="noopener noreferrer">
                 <span className={styles.contactKey}>github</span>
                 {contact.githubLabel}
@@ -170,12 +172,19 @@ export default function Home() {
                 {contact.linkedinLabel}
               </a>
             </div>
+
+            <a className={styles.resumeLink} href={resumeUrl} target="_blank" rel="noopener noreferrer">
+              <span className={styles.downloadArrow} aria-hidden="true">↓</span>
+              download résumé
+            </a>
           </section>
 
           <footer className={styles.footer}>
             <span className={styles.dim}>
               {identity.name} · built with Next.js · {new Date().getFullYear()}
             </span>
+            <span className={styles.footerSep}>·</span>
+            <Link href="/uses" className={styles.footerLink}>uses</Link>
           </footer>
         </main>
       </div>

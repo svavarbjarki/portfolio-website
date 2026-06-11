@@ -1,21 +1,9 @@
 import '../styles/globals.css';
-import Layout from '../components/Layout';
-import { useRouter } from 'next/router';
 
+// Every page in the app is a self-contained, dark-themed route with its own
+// chrome, so there's no shared Layout wrapper.
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
-  // The home page is a self-contained, single-page experience with its own
-  // chrome, so it opts out of the shared marketing Layout.
-  if (router.pathname === '/') {
-    return <Component {...pageProps} />;
-  }
-
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

@@ -8,9 +8,12 @@ import {
   games,
   contact,
   commands,
+  resumeUrl,
 } from '../data/portfolio';
 
 const COMMAND_NAMES = commands.map((c) => c.name);
+// Hidden commands that work but are intentionally left out of `help`.
+const HIDDEN_COMMANDS = ['sudo'];
 
 // Builds the styled output node for a recognised command.
 function renderOutput(cmd) {
@@ -48,6 +51,53 @@ function renderOutput(cmd) {
         </div>
       );
 
+    case 'cv':
+      return (
+        <div className={styles.out}>
+          <p className={styles.outLine}>
+            <span className={styles.accent}>{identity.name}</span>
+          </p>
+          <p className={styles.outDim}>{identity.role}</p>
+          <p className={styles.outDim}>
+            {identity.location} · {contact.email}
+          </p>
+
+          <div className={styles.outGroup}>
+            <p className={styles.accent}>EDUCATION</p>
+            <p className={styles.outDim}>BSc Computer Science — Reykjavík University (2025)</p>
+          </div>
+
+          <div className={styles.outGroup}>
+            <p className={styles.accent}>FOCUS</p>
+            <p className={styles.outDim}>Backend · Full-stack · Game development</p>
+          </div>
+
+          <div className={styles.outGroup}>
+            <p className={styles.accent}>KEY SKILLS</p>
+            <p className={styles.outDim}>
+              Python · JavaScript/TypeScript · C# · React/Next.js · Django · ASP.NET Core ·
+              PostgreSQL · Docker · Unity · Git
+            </p>
+          </div>
+
+          <p className={styles.outDim}>
+            Run <span className={styles.accent}>resume</span> for the full PDF.
+          </p>
+        </div>
+      );
+
+    case 'resume':
+      return (
+        <div className={styles.out}>
+          <p className={styles.outLine}>
+            <a className={styles.outLink} href={resumeUrl} target="_blank" rel="noopener noreferrer">
+              {resumeUrl}
+            </a>
+            <span className={styles.dim}> — opens the résumé PDF in a new tab.</span>
+          </p>
+        </div>
+      );
+
     case 'skills':
       return (
         <div className={styles.out}>
@@ -67,6 +117,9 @@ function renderOutput(cmd) {
             <p key={p.name} className={styles.outLine}>
               <span className={styles.accent}>{p.name}</span>
               <span className={styles.dim}> — {p.blurb}</span>
+              {p.status && (
+                <span className={styles.wipNote}> [status: {p.status.toLowerCase()}]</span>
+              )}
             </p>
           ))}
         </div>
@@ -104,6 +157,50 @@ function renderOutput(cmd) {
             <a className={styles.outLink} href={contact.linkedin} target="_blank" rel="noopener noreferrer">
               {contact.linkedinLabel}
             </a>
+          </p>
+        </div>
+      );
+
+    case 'ls':
+      return (
+        <div className={styles.out}>
+          <p className={styles.lsRow}>
+            {['skills', 'projects', 'games', 'about', 'contact', 'uses'].map((dir) => (
+              <span key={dir} className={styles.lsDir}>{dir}/</span>
+            ))}
+          </p>
+        </div>
+      );
+
+    case 'date': {
+      const now = new Date();
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      return (
+        <div className={styles.out}>
+          <p className={styles.outLine}>
+            {now.toString()}{' '}
+            <span className={styles.dim}>({tz})</span>
+          </p>
+        </div>
+      );
+    }
+
+    case 'ping':
+      return (
+        <div className={styles.out}>
+          <p className={styles.outLine}>
+            PING svavar.dev: 64 bytes from Iceland — time=2ms{' '}
+            <span className={styles.dim}>(pretty good for a volcanic island)</span>
+          </p>
+        </div>
+      );
+
+    case 'sudo':
+      return (
+        <div className={styles.out}>
+          <p className={styles.outLine}>
+            <span className={styles.error}>sudo: permission denied.</span>{' '}
+            <span className={styles.dim}>Nice try.</span>
           </p>
         </div>
       );
@@ -190,9 +287,12 @@ export default function Terminal() {
       return;
     }
 
+    // `sudo` (with or without arguments) maps to the witty rejection.
+    const key = lower === 'sudo' || lower.startsWith('sudo ') ? 'sudo' : lower;
+
     let node;
-    if (COMMAND_NAMES.includes(lower)) {
-      node = renderOutput(lower);
+    if (COMMAND_NAMES.includes(key) || HIDDEN_COMMANDS.includes(key)) {
+      node = renderOutput(key);
     } else {
       node = (
         <p className={styles.outLine}>
